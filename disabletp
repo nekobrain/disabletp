@@ -1,6 +1,6 @@
 #!/bin/bash
 
-x=$(xinput --list --id-only 'ELAN1200:00 04F3:3044 Touchpad')
+x=$(xinput --list --id-only 'DEVICENAME')
 
 y=$(xinput list-props $x | grep Enabled)
 
@@ -8,8 +8,8 @@ dev_status=${y:22}
 
 if [ $dev_status = 0 ]; then
 	xinput enable $x
-	echo "Touchpad acceso."
+	echo "Touchpad on."
 else
 	xinput disable $x
-	echo "Touchpad spento."
+	echo "Touchpad on."
 fi
